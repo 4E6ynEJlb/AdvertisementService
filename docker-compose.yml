@@ -1,0 +1,65 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: AdvertisementService/Dockerfile
+    depends_on:
+      - npgsql-container
+      - minio
+      - loki
+      - grafana
+    restart: always
+  npgsql-container:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment: 
+      - POSTGRES_USER=AdvertisementService
+      - POSTGRES_PASSWORD=zz778899
+      - POSTGRES_DB=AdvertisementServiceDb
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+  minio:
+    container_name: minio
+    restart: always
+    image: minio/minio
+    volumes:
+      - miniodata:/data
+    expose:
+      - "9000"
+    ports:
+      - "9000:9000"
+    command: server /data
+  loki:
+    image: grafana/loki:master
+    ports:
+       - 3100:3100
+    command: -config.file=/etc/loki/local-config.yaml
+    restart: always
+  grafana:
+    image: grafana/grafana:master
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana:/var/lib/grafana
+      - ./provisioning/plugins:/etc/grafana/provisioning/plugins
+      - ./grafanaConfiguration:/etc/grafana/provisioning/
+      - ./provisioning/notifiers:/etc/grafana/provisioning/notifiers
+    depends_on:
+      - loki
+    restart: always
+volumes:
+  miniodata:
+  db-data:
+  grafana: ~
+  loki: ~
+

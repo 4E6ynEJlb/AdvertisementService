@@ -1,0 +1,32 @@
+{
+  "SQLConnectionStrings": {
+    "DefaultConnection": "User ID={0};Password={1};Server=npgsql-container;Port=5432;Database={2};Pooling=true;"
+  },
+  "MinioOptions": {
+    "AccessKey": "minioadmin",
+    "SecretKey": "minioadmin",
+    "Endpoint": "minio:9000",
+    "BucketName": "images"
+  },
+  "LokiOptions": {
+    "User": "admin",
+    "Password": "admin",
+    "URI": "http://host.docker.internal:3100"
+  },
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "logs/log-.txt",
+          "rollingInterval": "Day",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}"
+        }
+      }
+    ]
+  }
+}

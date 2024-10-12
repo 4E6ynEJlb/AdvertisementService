@@ -1,0 +1,13 @@
+{
+  "ApplicationConfiguration": {
+    "UserAdvertisementsMaxCount": 5,
+    "AdvertisementLifetimeDays": 10,
+    "AdvertisementsRemovationTicksInterval": 60000,
+    "ImagesLinkTemplate": "https://localhost:61698/Advertisement/images/",
+    "CacheSlidingExpirationMinutes": 5
+  },
+  "HostCredentials": {
+    "HostLogin": "Login",
+    "HostPassword": "Password"
+  }
+}
