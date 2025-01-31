@@ -10,6 +10,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["AdvertisementService/AdvertisementService.csproj", "AdvertisementService/"]
+COPY ["Client/Client.esproj", "Client/"]
 RUN dotnet restore "./AdvertisementService/AdvertisementService.csproj"
 COPY . .
 WORKDIR "/src/AdvertisementService"

@@ -10,8 +10,8 @@ services:
       - POSTGRES_PASSWORD=zz778899
       - POSTGRES_DB=AdvertisementServiceDb
     ports:
-      - "8080"
-      - "8081"
+      - 12345:8080
+      - 12346:8081
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
