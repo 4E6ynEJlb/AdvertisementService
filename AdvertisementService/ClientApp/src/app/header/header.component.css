@@ -1,0 +1,31 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: auto;
+    margin-right: 30px;
+    padding: 0 30px;
+}
+
+.menu-list {
+    font-weight: 300;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.menu-element {
+    display: inline-block;
+    padding: 15px 15px;
+    margin: 7.5px;
+    min-width: 110px;
+}
+
+.logged-in-visible {
+    display: none;
+}
+
+.logged-out-visible {
+    display: none;
+}

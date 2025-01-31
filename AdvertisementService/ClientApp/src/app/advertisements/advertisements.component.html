@@ -1,0 +1,48 @@
+<section class="options-selector">
+    <div class="sort-selector">
+        <p>Сортировать по:</p>
+        <select class="sort-option" [(ngModel)]="selectedValue">
+            <option value=0>дате, сначала свежие</option>
+            <option value=1>дате, сначала старые</option>
+            <option value=2>рейтингу, от большего</option>
+            <option value=3>рейтингу, от меньшего</option>
+        </select>
+    </div>
+    <div>
+        <div>
+            <span>Использовать минимальный рейтинг</span>
+            <input type="checkbox" [(ngModel)]="useMinRating">
+        </div>
+        <div>
+            <span>Использовать максимальный рейтинг</span>
+            <input type="checkbox" [(ngModel)]="useMaxRating">
+        </div>
+    </div>
+    <div class="rating-input">
+        <p>Рейтинг: от</p>
+        <input [(ngModel)]="ratingMin" (input)="valueChange()" type="number" min="0" max="5" step="0.1" value="0">
+        <p>до</p>
+        <input [(ngModel)]="ratingMax" (input)="valueChange()" type="number" min="0" max="5" step="0.1" value="5">
+    </div>
+    <div class="rating-selector">
+        <input [(ngModel)]="ratingSliderFirst" (input)="sliderValueChange()" class="first slider" type="range" min="0"
+            max="5" value="0" step="0.1">
+        <input [(ngModel)]="ratingSliderSecond" (input)="sliderValueChange()" class="second slider" type="range" min="0"
+            max="5" value="5" step="0.1">
+    </div>
+    <div class="keyword-input">
+        <p>Ключевое слово:</p>
+        <input type="text" [(ngModel)]="keyWord">
+    </div>
+    <input type="button" value="Поиск" class="search-button" (click)="searchClick()">
+</section>
+<section class="content">
+    <div #container></div>
+</section>
+<section class="page-selector">
+    <input type="button" [class.prev-hidden]="prevHidden" (click)="changePage(false, true)" value="&lt;&lt;">
+    <input type="button" [class.prev-hidden]="prevHidden" (click)="changePage(false, false)" value="&lt;">
+    <span [innerText]="currentPage">1</span>
+    <input type="button" [class.next-hidden]="nextHidden" (click)="changePage(true, false)" value="&gt;">
+    <input type="button" [class.next-hidden]="nextHidden" (click)="changePage(true, true)" value="&gt;&gt;">
+</section>

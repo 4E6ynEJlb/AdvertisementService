@@ -1,0 +1,14 @@
+<main>
+    <aside>
+        <span class="name" [innerText]="greetings"></span>
+        <span [innerText]="id"></span>
+        <input type="button" value="Настройки" (click)="settingsClick()">
+    </aside>
+    <section class="advertisements">
+        <h1>Ваши объявления:</h1>
+        <section class="content">
+            <div #container></div>
+        </section>
+        <input type="button" value="Создать объявление" (click)="newAdvertisementClick()">
+    </section>
+</main>

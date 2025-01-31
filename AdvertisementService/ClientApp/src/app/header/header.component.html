@@ -1,0 +1,13 @@
+<nav class="menu">
+    <ul class="menu-list">
+        <button class="menu-element" (click)="adsClick()">Объявления</button>
+        <button class="menu-element" [class.logged-in-visible]="!httpService.isLogined"
+            (click)="profileClick()">Профиль</button>
+        <button class="menu-element" [class.logged-out-visible]="httpService.isLogined"
+            (click)="logInClick()">Вход</button>
+        <button class="menu-element" [class.logged-out-visible]="httpService.isLogined"
+            (click)="registerClick()">Регистрация</button>
+        <button class="menu-element" [class.logged-in-visible]="!httpService.isLogined"
+            (click)="logOutClick()">Выход</button>
+    </ul>
+</nav>

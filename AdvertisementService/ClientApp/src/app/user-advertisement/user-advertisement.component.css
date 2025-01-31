@@ -1,0 +1,14 @@
+.advertisement{
+    display: flex;
+    flex-direction: column;
+    margin: 20px
+}
+
+.image{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.invisible{
+    display: none;
+}

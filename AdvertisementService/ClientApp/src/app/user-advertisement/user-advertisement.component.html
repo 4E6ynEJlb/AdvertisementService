@@ -1,0 +1,10 @@
+<div class="advertisement">
+    <span class="created" [innerText]="created"></span>    
+    <span class="will-be-deleted" [innerText]="willBeDeleted"></span>
+    <span class="text" [innerText]="text"></span>
+    <span class="rating" [innerText]="rating"></span>
+    <img class="image" [src]="imageLink">
+    <span class="number" [innerText]="number"></span>
+    <input type="button" value="Редактировать" [class.invisible]="isDeleted" (click)="editButtonClick()">
+    <input type="button" [value]="deleteButtonText" (click)="deleteButtonClick()">
+</div>

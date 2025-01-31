@@ -19,6 +19,7 @@
 
             try
             {
+                httpContext.Response.Headers.Append("Access-Control-Allow-Origin", "http://localhost:4200");
                 await _next.Invoke(httpContext);
 
                 if (response.StatusCode is >= 200 and <= 299)

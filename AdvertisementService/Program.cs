@@ -24,7 +24,15 @@ namespace AdvertisementService
 
             builder.Services.AddAuthorization(options => options.ConfigureRoles());
             builder.ConfigureAuthentication();
-
+            builder.Services.AddCors(c =>
+            {
+                c.AddPolicy("FrontAngular", options =>
+                {
+                    options.WithOrigins(["http://localhost:4200"]).
+                    AllowAnyHeader().
+                    AllowAnyMethod();
+                });
+            });
             var app = builder.Build();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -33,7 +41,7 @@ namespace AdvertisementService
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("FrontAngular");
             app.UseMiddleware<ExceptionHandlerMiddleware>();
             app.UseMiddleware<RequestLoggingMiddleware>();
 
@@ -45,6 +53,7 @@ namespace AdvertisementService
                     GetRequiredService<AdvertisementContext>().
                     Database.Migrate();
             }
+            app.MapFallbackToFile("index.html");
             app.Run();
         }
     }

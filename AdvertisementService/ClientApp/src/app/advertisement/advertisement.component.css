@@ -1,0 +1,22 @@
+.advertisement{
+    display: flex;
+    flex-direction: column;
+    margin: 20px
+}
+
+.image{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.star{
+    font-size: 40px;
+}
+
+.invisible{
+    display: none;
+}

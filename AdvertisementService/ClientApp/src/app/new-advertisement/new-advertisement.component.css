@@ -1,0 +1,23 @@
+section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.input-div{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.image{
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.img-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.invisible{
+    display: none;
+}

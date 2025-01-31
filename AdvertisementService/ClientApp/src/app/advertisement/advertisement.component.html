@@ -1,0 +1,15 @@
+<div class="advertisement">
+    <span class="created" [innerText]="created"></span>
+    <span class="text" [innerText]="text"></span>
+    <span class="rating" [innerText]="rating"></span>
+    <img class="image" [src]="imageLink">
+    <span class="number" [innerText]="number"></span>
+    <div class="stars">
+        <span class="star pointer" (click)="starClick(1)" (mouseenter)="starMouseEnter(0)" (mouseleave)="starMouseLeave()" [innerText]="stars[0]"></span>
+        <span class="star pointer" (click)="starClick(2)" (mouseenter)="starMouseEnter(1)" (mouseleave)="starMouseLeave()" [innerText]="stars[1]"></span>
+        <span class="star pointer" (click)="starClick(3)" (mouseenter)="starMouseEnter(2)" (mouseleave)="starMouseLeave()" [innerText]="stars[2]"></span>
+        <span class="star pointer" (click)="starClick(4)" (mouseenter)="starMouseEnter(3)" (mouseleave)="starMouseLeave()" [innerText]="stars[3]"></span>
+        <span class="star pointer" (click)="starClick(5)" (mouseenter)="starMouseEnter(4)" (mouseleave)="starMouseLeave()" [innerText]="stars[4]"></span>
+    </div>
+    <input type="button" [value]="deleteButtonText" (click)="deleteButtonClick()" [class.invisible]="!isDeleteButtonVisible">
+</div>

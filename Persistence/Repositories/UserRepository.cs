@@ -36,13 +36,20 @@ namespace Persistence.Repositories
             }
             catch(DbUpdateException e)
             {
-                throw new RegistrationException(e);
+                throw new CredentialsException(e);
             }
         }
 
         public async Task UpdateUserAsync(CancellationToken cancellationToken)
         {
-            await _context.SaveChangesAsync(cancellationToken);
+            try
+            {
+                await _context.SaveChangesAsync(cancellationToken);
+            }
+            catch (DbUpdateException e)
+            {
+                throw new CredentialsException(e);
+            }
         }
 
         public async Task DeleteUserAsync(User user, CancellationToken cancellationToken)

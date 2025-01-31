@@ -1,0 +1,12 @@
+<div class="register">
+    <h1>Введите имя, логин и пароль</h1>
+    <div class="register-inner">
+        <span>Имя</span>
+        <input type="text" [(ngModel)]="name">
+        <span>Логин</span>
+        <input type="text" [(ngModel)]="login">
+        <span>Пароль</span>
+        <input type="text" [(ngModel)]="password">
+        <button (click)="buttonClick()">Зарегистрироваться</button>
+    </div>
+</div>

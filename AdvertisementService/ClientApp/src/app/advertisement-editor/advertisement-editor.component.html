@@ -1,0 +1,16 @@
+<section>
+    <div class="input-div">
+        <span>Номер телефона:</span>
+        <input type="tel" pattern="77[0-9]{6}" #telInput maxlength="8" minlength="8" required>
+    </div>
+    <div class="input-div">
+        <span>Текст объявления:</span>
+        <input type="text" maxlength="512" [(ngModel)]="text">
+    </div>
+    <div class="img-div input-div">
+        <input type="file" #fileInput (change)="imageSelectedEventHandler($event)" accept="image/png, image/jpeg, image/bmp">
+        <img [src]="imageSrc" class="image" [class.invisible]="!isImageSelected">
+        <input type="button" [class.invisible]="!isImageSelected" value="Удалить изображение" (click)="deleteButtonClick()">
+    </div>
+    <input type="button" (click)="saveButtonClick()" value="Сохранить">
+</section>

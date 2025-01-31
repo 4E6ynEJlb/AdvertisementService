@@ -39,7 +39,7 @@ namespace API.Extensions
                     builder.Configuration.GetSection("LokiOptions").GetValue<string>("URI") ?? throw new ArgumentNullException("Loki URI"),
                     lokiCredentials,
                     new Dictionary<string, string> { { "app", "Serilog.Sinks.GrafanaLoki.Sample" } },
-                    LogEventLevel.Error
+                    LogEventLevel.Information
                 ).CreateLogger();
             builder.Host.UseSerilog();
             builder.Logging.AddSerilog();

@@ -1,0 +1,11 @@
+.log-in{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+.log-in-inner{
+    display: flex;
+    flex-direction: column;
+}

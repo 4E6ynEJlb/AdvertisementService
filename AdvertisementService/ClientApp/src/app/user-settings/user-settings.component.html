@@ -1,0 +1,14 @@
+<section>
+    <div class="settings-div name">
+        <span>Имя</span>
+        <input type="text" [(ngModel)]="name" class="input-text">
+        <input type="button" value="Сохранить" (click)="saveNameButtonClick()">
+    </div>
+    <div class="settings-div credentials">
+        <span>Логин</span>
+        <input type="text" [(ngModel)]="login" class="input-text">        
+        <span>Пароль</span>
+        <input type="text" [(ngModel)]="password" class="input-text">
+        <input type="button" value="Сохранить" (click)="saveCredentialsButtonClick()">
+    </div>
+</section>
